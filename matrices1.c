@@ -45,7 +45,7 @@ int* initVetU(int lin, int col){
     for(int i = 0; i < lin; i++){
         for(int j = 0; j < col; j++){
             printf("lin = %d, col = %d\n", lin, col);
-            printf("Digite o valor do elemento [%d][%d]\n>>> ", i, j, (i * col) + j);
+            printf("Digite o valor do elemento [%d][%d]\n>>> ", i, j);
             scanf("%d", &mat[(i * col) + j]);
         }
     }
