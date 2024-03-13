@@ -22,7 +22,18 @@ int main()
     }
     
     for(int i = 0; i < lin; i++){
-        
+        for(int j = 0; j < col; j++){
+            printf("%d ", vetP[i][j]);
+        }
+        printf("\n");
+    }
+    
+    printf("Transposta:\n");
+    for(int i = 0; i < col; i++){
+        for(int j = 0; j < lin; j++){
+            printf("%d ", vetP[j][i]);
+        }
+        printf("\n");
     }
     
 
