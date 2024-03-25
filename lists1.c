@@ -63,6 +63,8 @@ List *removeL(List *l, int value){
 }
 
 List *separa(List* l, int n){
+    List *t = searchByValue(l, n);
+
     
 }
 
