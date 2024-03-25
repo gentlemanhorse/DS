@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -39,7 +40,7 @@ List *searchByValue(List *l, int value){
 
 }
 
-List *remove(List *l, int value){
+List *removeL(List *l, int value){
     List* prev = NULL;
     List* t = l;
 
@@ -61,6 +62,10 @@ List *remove(List *l, int value){
     return l;
 }
 
+List *separa(List* l, int n){
+    
+}
+
 
 int main(int argc, char* argv[]){
     List *list = NULL;
@@ -72,6 +77,9 @@ int main(int argc, char* argv[]){
 
     List* newList = searchByValue(list, 34);
     printList(newList);
+    newList = removeL(list, 34);
+    printList(newList);
 
     free(list);
+    free(newList);
 }
