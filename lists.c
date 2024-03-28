@@ -8,7 +8,18 @@ struct lista{
 
 typedef struct lista Lista;
 
-Lista* separa(Lista* l, int n);
+Lista* separa(Lista* l, int n){
+	Lista* temp = l;
+	Lista* ant = NULL;
+	while(temp->prox != NULL && temp->valor != n){
+		ant = temp;
+		temp = temp->prox;
+	}
+	if(temp->valor == n){
+		
+	}
+	
+}
 
 Lista* concatena(Lista* l1, Lista* l2);
 
