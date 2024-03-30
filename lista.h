@@ -1,5 +1,7 @@
 #ifndef lISTA_H
 #define LISTA_H
+#include <stdio.h>
+#include <stdlib.h>
 
 struct lista{
 	int valor;;
