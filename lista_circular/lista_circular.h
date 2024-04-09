@@ -12,7 +12,7 @@ typedef struct lista_circular ListaC;
 
 ListaC *insere(ListaC *l, int valor);
 
-//ListaC *remove(ListaC *l, int valor);
+ListaC *remover(ListaC *l, int valor);
 
 void print_lista(ListaC *l);
 
