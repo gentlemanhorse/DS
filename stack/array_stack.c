@@ -37,11 +37,20 @@ int testa_mais_elementos(Stack *s1, Stack *s2) {
     return (s1->n > s2->n);
 }
 
-void transferir_elementos(Stack *s1, Stack *s2);
+void transferir_elementos(Stack *s1, Stack *s2, int *flagErro) {
+    if((s1->n + s2->n) > MAX) {
+        *flagErro = 1;
+        exit(1);
+    }
+    for(int i = 0; i < s1->n; i++) {
+        push(s2, s1->array[i]);
+    }
+    *flagErro = 0;
+}
 
 void inverter(Stack *s) {
     Stack *t = create_stack();
-    while(!is_empty(s)) {
+    while (!is_empty(s)) {
         push(t, pop(s));
     }
     free_stack(s);
@@ -49,4 +58,14 @@ void inverter(Stack *s) {
 
 }
 
-int iguais(Stack *s1, Stack *s2);
+int iguais(Stack *s1, Stack *s2) {
+    if (s1->n != s2->n) 
+        return 0;
+    for (int i = 0; i < s1->n; i++) {
+        if (s1->array[i] != s2->array[i])
+            return 0;
+    }
+
+    return 1;
+}
+

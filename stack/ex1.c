@@ -20,6 +20,13 @@ int main(int argc, char *argv[]) {
     
     printf("Stack invertida:\n");
     inverter(s1);
+
+    if (iguais(s1, s2)) {
+        printf("Stacks são iguais\n");
+    }
+    else 
+        printf("Nao sao iguais\n");
+
     free_stack(s1);
     free_stack(s2);
     return 0;
