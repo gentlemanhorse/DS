@@ -9,7 +9,7 @@ void inverter(PilhaFloat **p) {
     *p = t;
 }
 
-int main(int arg, char *argv[]) {
+int main(int argc, char *argv[]) {
     PilhaFloat *p = cria_pilha_float();
     for(int i = 0; i < 10; i++) {
         push_float(p, i);
@@ -19,6 +19,7 @@ int main(int arg, char *argv[]) {
     inverter(&p);
     printf("Pilha invertida:\n");
     print_pilha(p);
+    free_pilha_float(p);
 
     return 0;
 }

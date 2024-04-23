@@ -12,12 +12,6 @@ PilhaChar *cria_pilha_char(void) {
 	return p;
 }
 
-PilhaChar *cria_pilha_char(void) {
-	PilhaChar *p = (PilhaChar *) malloc(sizeof(PilhaChar));
-	p->topo = NULL;
-	return p;
-}
-
 NoFloat *insere_float(NoFloat *no, float v) {
 	NoFloat *p = (NoFloat *) malloc(sizeof(NoFloat));
 	p->valor = v;
@@ -26,7 +20,7 @@ NoFloat *insere_float(NoFloat *no, float v) {
 }
 
 NoChar *insere_char(NoChar *no, char v) {
-	NoChar *p = (NoFloat *) malloc(sizeof(NoChar));
+	NoChar *p = (NoChar *) malloc(sizeof(NoChar));
 	p->valor = v;
 	p->prox = no;
 	return p;

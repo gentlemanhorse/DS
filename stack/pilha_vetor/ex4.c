@@ -38,5 +38,9 @@ int main(int argc, char *argv[]) {
         printf("Pilha 1 e 3 sao iguais\n");
     else   
         printf("Pilha 1 e 3 nao sao iguais\n");
+
+    free_pilha_float(p1);
+    free_pilha_float(p2);
+    free_pilha_float(p3);
     return 0;
 }
