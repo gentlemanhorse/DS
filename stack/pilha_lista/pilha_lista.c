@@ -1,45 +1,101 @@
 #include "pilha_lista.h"
 
-PilhaL *cria_PilhaL(void) {
-	PilhaL *p = (PilhaL *) malloc(sizeof(PilhaL));
+PilhaFloat *cria_pilha_float(void) {
+	PilhaFloat *p = (PilhaFloat *) malloc(sizeof(PilhaFloat));
 	p->topo = NULL;
 	return p;
 }
 
-Lista *insere_PilhaL(Lista *l, int v) {
-	l = insere(l, v);
-	return l;
+PilhaChar *cria_pilha_char(void) {
+	PilhaChar *p = (PilhaChar *) malloc(sizeof(PilhaChar));
+	p->topo = NULL;
+	return p;
 }
 
-Lista *retira_ini(Lista *l) {
-	Lista *r = l->prox;
-	free(l);
+PilhaChar *cria_pilha_char(void) {
+	PilhaChar *p = (PilhaChar *) malloc(sizeof(PilhaChar));
+	p->topo = NULL;
+	return p;
+}
+
+NoFloat *insere_float(NoFloat *no, float v) {
+	NoFloat *p = (NoFloat *) malloc(sizeof(NoFloat));
+	p->valor = v;
+	p->prox = no;
+	return p;
+}
+
+NoChar *insere_char(NoChar *no, char v) {
+	NoChar *p = (NoFloat *) malloc(sizeof(NoChar));
+	p->valor = v;
+	p->prox = no;
+	return p;
+}
+
+NoFloat *retira_float(NoFloat *no) {
+	NoFloat *r = no->prox;
+	free(no);
 	return r;
 }
 
-void push(PilhaL *p, int v) {
-	p->topo = insere_PilhaL(p->topo, v);
+NoChar *retira_char(NoChar *no) {
+	NoChar *r = no->prox;
+	free(no);
+	return r; 
 }
 
-int pop(PilhaL *p) {
-	int v;
-	if (vazia(p)) {
+void push_float(PilhaFloat *p, float v) {
+	p->topo = insere_float(p->topo, v);
+}
+
+void push_char(PilhaChar *p, char v) {
+	p->topo = insere_char(p->topo, v);
+}
+
+float pop_float(PilhaFloat *p) {
+	float v;
+	if (vazia_float(p)) {
 		printf("Pilha vazia \n");
 		exit(1);
 	}
 	v = p->topo->valor;
-	p->topo = retira_ini(p->topo);
+	p->topo = retira_float(p->topo);
 	return v;
 }
 
-int vazia(PilhaL *p) {
+char pop_char(PilhaChar *p) {
+	char v;
+	if (vazia_char(p)) {
+		printf("Pilha vazia\n");
+		exit(1);
+	}
+	v = p->topo->valor;
+	p->topo = retira_char(p->topo);
+	return v;
+}
+
+int vazia_float(PilhaFloat *p) {
 	return (p->topo == NULL);
 }
 
-void libera(PilhaL *p) {
-	Lista *q = p->topo;
+int vazia_char(PilhaChar *p) {
+	return (p->topo == NULL);
+}
+
+void libera_float(PilhaFloat *p) {
+	NoFloat *q = p->topo;
 	while (q != NULL) {
-		Lista *t = q->prox;
+		NoFloat *t = q->prox;
+		free(q);
+		q = t;
+	}
+	free(p);
+}
+
+void libera_char(PilhaChar *p) {
+	NoChar *q = p->topo;
+	while (q != NULL) {
+		NoChar *t = q->prox;
 		free(q);
 		q = t;
 	}
