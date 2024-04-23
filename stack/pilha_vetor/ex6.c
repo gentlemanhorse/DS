@@ -6,35 +6,37 @@ int verfica_prefixo_sufixo(char *str, char *pref) {
     int ip = strlen(pref) - 1;
 
     // Verifica se o elemento do meio eh o caracter 'C'
-    if(str[strlen(pref)] != 'C' || strlen(str) != (strlen(pref) * 2 + 1))
+    if(str[strlen(pref)] != 'C' || strlen(str) != (strlen(pref) * 2 + 1)) {
+        free_pilha_char(p);
         return 0;
+    }
 
-    printf("teste1 passou\n");
-    for(int i = 0; i < strlen(str); i++) {
+    for(int i = 0; i < strlen(pref); i++) {
         // Verifica se os elementos iniciais condizem com o fator
-        if (i < strlen(pref)){
-            if(str[i] == pref[i]) 
-                push_char(p, str[i]);
-            else    
-                return 0;
+        if(str[i] == pref[i]) 
+            push_char(p, str[i]);
+        else {
+            free_pilha_char(p);
+            return 0;
+        }  
+    
+        // Verifica se os elementos finais condizem com o fator 
+        if (pop_char(p) != str[strlen(str) - i - 1]) {
+            free_pilha_char(p);
+            return 0;       
         }
-        printf("teste 1 passou\n");
-        // Verifica se os elementos finais condizem com o fator
-        if (i > strlen(str) - strlen(pref))
-            printf("%c && %c", pref[ip], p->vetor[p->n - 1]); 
-            if (pop_char(p) != pref[ip--])
-                return 0;       
     }
     return 1;
 }
 
 int main(int argc, char *arv[]) {
-    char *str1 = "ABCCCBA";
-    char *pref1 = "ABC";
+    char *str1 = "ABCxjCjxCBA";
+    char *pref1 = "ABCxj";
     char *str2 = "EAEECEEEE";
     char *pref2 = "EAEE";
     char *str3 = "BOBXBOB";
     char *pref3 = "BOB";
+    printf("string 1 = %s fator 1 = %s\nstring 2 = %s fator 2 = %s\nstring 3 = %s fator 3 == %s\n", str1, pref1, str2, pref2, str3, pref3);
     if (verfica_prefixo_sufixo(str1, pref1)) 
         printf("String 1 contem os requisitos\n");
     else    
