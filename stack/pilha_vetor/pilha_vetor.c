@@ -6,18 +6,31 @@ PilhaFloat *cria_pilha_float() {
     return p; 
 }
 
-PilhaChar *cria_pilha_char();
-
-void push_float(PilhaFloat *p, float v) {
-    if (p->n == MAX) {
-        printf("Pilha atingiu a capacidade máxima\n");
-        exit(1);
-    }
-    printf("%d valor = %f\n", p->n, v);
-    p->vetor[p->n++] = v;
+PilhaChar *cria_pilha_char() {
+    PilhaChar *p = (PilhaChar *) malloc(sizeof(PilhaChar));
+    p->n = 0;
+    return p;
 }
 
-void push_char(PilhaChar *p, char v);
+void push_float(PilhaFloat *p, float v) {
+    if (p->n == MAX) { 
+        printf("Capacidade da pilha estourou.\n");
+        exit(1);
+    }
+ 
+    p->vetor[p->n] = v;
+    p->n++;
+}
+
+void push_char(PilhaChar *p, char v) {
+    if (p->n == MAX) { 
+        printf("Capacidade da pilha estourou.\n");
+        exit(1);
+    }
+ 
+    p->vetor[p->n] = v;
+    p->n++;
+}
 
 float pop_float(PilhaFloat *p) {
     if (float_is_empty(p)) {
@@ -29,31 +42,31 @@ float pop_float(PilhaFloat *p) {
     return v;
 }
 
-char pop_char(PilhaChar *p);
+char pop_char(PilhaChar *p) {
+    if (char_is_empty(p)) {
+        printf("Pilha vazia");
+        exit(1);
+    }
+    char v = p->vetor[p->n - 1];
+    p->n--;
+    return v;
+}
 
 int float_is_empty(PilhaFloat *p) {
     return (p->n == 0);
 }
 
-int char_is_empty(PilhaChar *p);
+int char_is_empty(PilhaChar *p) {
+    return (p->n == 0);
+}
 
 void free_pilha_float(PilhaFloat *p) {
     free(p);
 }
 
-void free_pilha_char(PilhaChar *p);
-
-void transferir_elementos(PilhaFloat *p1, PilhaFloat *p2, int *flagErro) {
-    if((p1->n + p2->n) > MAX) {
-        *flagErro = 1;
-        exit(1);
-    }
-    for(int i = 0; i < p1->n; i++) {
-        push_float(p2, p1->vetor[i]);
-    }
-    *flagErro = 0;
+void free_pilha_char(PilhaChar *p) {
+    free(p);
 }
-
 
 
 void inverter(PilhaFloat *p) {
@@ -75,5 +88,11 @@ int iguais(PilhaFloat *p1, PilhaFloat *p2) {
     }
 
     return 1;
+}
+
+void print_lista(PilhaFloat *p) {
+    int i;
+    for (i=p->n-1; i>=0; i--)
+        printf("%f\n",p->vetor[i]);
 }
 

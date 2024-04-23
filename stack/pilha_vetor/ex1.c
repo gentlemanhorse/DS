@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
         if (i < 5)
             push_float(p3, i * 2);
     }
-
+    print_lista(p2);
     if (testa_mais_elementos(p1, p2))
         printf("Pilha p1 tem mais elementos que a pilha p2\n");
     else 
@@ -27,4 +27,7 @@ int main(int argc, char *argv[]) {
     else    
         printf("Pilha p1 nao tem mais elementos que a pilha p3\n");
     return 0;
+    free_pilha_char(p1);
+    free_pilha_char(p2);
+    free_pilha_char(p3);
 }

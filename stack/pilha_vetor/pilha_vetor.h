@@ -34,14 +34,11 @@ void free_pilha_float(PilhaFloat *p);
 
 void free_pilha_char(PilhaChar *p);
 
-int testa_mais_elementos(PilhaFloat *p1, PilhaFloat *p2);
-
-void transferir_elementos(PilhaFloat *p1, PilhaFloat *p2, int *flagErro);
 
 void inverter(PilhaFloat *p);
 
 int iguais(PilhaFloat *p1, PilhaFloat *p2);
 
-
+void print_lista(PilhaFloat *p); 
 
 #endif

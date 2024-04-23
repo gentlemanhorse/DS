@@ -1,4 +1,4 @@
-#include "list_stack.h"
+#include "pilha_lista.h"
 
 
 PilhaL *cria_PilhaL(void) {

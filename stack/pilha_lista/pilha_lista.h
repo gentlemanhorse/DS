@@ -1,5 +1,5 @@
-#ifndef LIST_STACK_H
-#define LIST_STACK_H
+#ifndef PILHA_LISTA_H
+#define PILHA_LISTA_H
 #include "lista.h"
 
 struct pilhaL {
