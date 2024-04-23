@@ -1,11 +1,11 @@
 #include "pilha_lista.h"
 
 int iguais(PilhaFloat *p1, PilhaFloat *p2) {
-    while (!vazia_float(p1) && !vazia_float(p2)) {
+    while (!vazia_float(p1) && !vazia_float(p2)) { // enquanto ainda ha elementos nas duas pilhas testa se os elementos do topo sao iguais
         if (pop_float(p1) != pop_float(p2))
             return 0;
     }
-    if (!vazia_float(p1) || !vazia_float(p2))
+    if (!vazia_float(p1) || !vazia_float(p2)) // se sobro elementos, retorna falso
         return 0;
 
     return 1;

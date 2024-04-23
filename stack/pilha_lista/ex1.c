@@ -3,11 +3,11 @@
 int testa_mais_elementos(PilhaFloat *p1, PilhaFloat *p2) {
     NoFloat *t1 = p1->topo;
     NoFloat *t2 = p2->topo;
-    while (t1 != NULL && t2 != NULL) {
+    while (t1 != NULL && t2 != NULL) { // percorre as pilhas
         t1 = t1->prox;
         t2 = t2->prox;
     }
-    if(t1 == NULL) {
+    if(t1 == NULL) { // Se o no eh vazio, entao a pilha 2 tem mais elementos
         return 0;
     }
     return 1;

@@ -2,11 +2,11 @@
 
 void inverter(PilhaFloat **p) {
     PilhaFloat *t = cria_pilha_float();
-    while (!float_is_empty(*p)) {
+    while (!float_is_empty(*p)) {   // enquanto a pilha nao eh vaiza, transferi os elementos para o a nova pilha
         push_float(t, pop_float(*p));
     }
-    free_pilha_float(*p);
-    *p = t;
+    free_pilha_float(*p);   
+    *p = t; // atribui a nova pilha para a antiga
 }
 
 int main(int argc, char *argv[]) {

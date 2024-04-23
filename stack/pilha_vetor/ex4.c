@@ -1,15 +1,16 @@
 #include "pilha_vetor.h"
 
 int iguais(PilhaFloat *p1, PilhaFloat *p2) {
-    if (p1->n != p2->n) 
-        return 0;
-    for (int i = 0; i < p1->n; i++) {
-        if (p1->vetor[i] != p2->vetor[i])
+    while (!float_is_empty(p1) && !float_is_empty(p2)) { // enquanto ainda ha elementos nas duas pilhas testa se os elementos do topo sao iguais
+        if (pop_float(p1) != pop_float(p2))
             return 0;
     }
+    if (!float_is_empty(p1) || !float_is_empty(p2)) // se sobro elementos, retorna falso
+        return 0;
 
     return 1;
 }
+
 
 int main(int argc, char *argv[]) {
     PilhaFloat *p1 = cria_pilha_float();

@@ -3,15 +3,15 @@
 int verifica_parenteses(char *e) {
     PilhaChar *p = cria_pilha_char();
     for(int i = 0; e[i] != '\0'; i++) {
-        if (e[i] == '(') 
+        if (e[i] == '(') // se ha um parentese aberto, insere na pilha
             push_char(p, e[i]);
-        else if (e[i] == ')') {
+        else if (e[i] == ')') { // se ha um parentese fechado, verifica se nao ha um aberto sobrando (erro)
             if(char_is_empty(p))
                 return 0;
             pop_char(p);
         }
     }
-    int r = char_is_empty(p);
+    int r = char_is_empty(p); // verifica se ha algum parentese sobrando (erro)
     free_pilha_char(p);
     return r;
 }

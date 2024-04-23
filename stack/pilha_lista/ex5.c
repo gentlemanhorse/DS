@@ -11,7 +11,7 @@ int verifica_parenteses(char *e) {
             pop_char(p);
         }
     }
-    int r = vazia_char(p); // verifica se ha algum parentese sobrando
+    int r = vazia_char(p); // verifica se ha algum parentese sobrando (erro)
     libera_char(p);
     return r;
 }

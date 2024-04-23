@@ -2,7 +2,7 @@
 
 void transferir_elementos(PilhaFloat *p1, PilhaFloat *p2, int *flagErro) {
     *flagErro = 1;
-    while (!vazia_float(p1)) {
+    while (!vazia_float(p1)) {  // insere na pilha 2 os elementos da pilha 1
         push_float(p2, pop_float(p1));
     }
     flagErro = 0;
