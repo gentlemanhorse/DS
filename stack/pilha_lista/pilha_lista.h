@@ -1,24 +1,52 @@
 #ifndef PILHA_LISTA_H
 #define PILHA_LISTA_H
-#include "lista.h"
+#include <stdio.h>
+#include <stdlib.h>
 
-struct pilhaL {
-	Lista *topo;
-};
+typedef struct no_float {
+	float valor;
+	struct no_float *prox;
+} NoFloat;
 
-typedef struct pilhaL PilhaL;
+typedef struct no_char {
+	char valor;
+	struct no_char *prox;
+} NoChar;
 
-PilhaL *cria_PilhaL(void);
 
-Lista *insere_PilhaL(Lista *l, int v);
+typedef struct pilha_float {
+	NoFloat *topo;
+} PilhaFloat;
 
-Lista *retira_ini(Lista *l);
+typedef struct pilha_char {
+	NoChar *topo;
+} PilhaChar;
 
-void push(PilhaL *p, int v);
+PilhaFloat *cria_pilha_float(void);
 
-int pop(PilhaL *p);
+PilhaChar *cria_pilha_char(void);
 
-int vazia(PilhaL *p);
+NoFloat *insere_float(NoFloat *no, float v);
 
-void libera(PilhaL *p);
+NoChar *insere_char(NoChar *no, char v);
+
+NoFloat *retira_float(NoFloat *no);
+
+NoChar *retira_char(NoChar *no);
+
+void push_float(PilhaFloat *p, float v);
+
+void push_char(PilhaChar *p, char v);
+
+float pop_float(PilhaFloat *p);
+
+char pop_char(PilhaChar *p);
+
+int vazia_float(PilhaFloat *p);
+
+int vazia_char(PilhaChar *p);
+
+void libera_float(PilhaFloat *p);
+
+void libera_char(PilhaChar *p);
 #endif

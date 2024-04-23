@@ -1,6 +1,5 @@
 #include "pilha_lista.h"
 
-
 PilhaL *cria_PilhaL(void) {
 	PilhaL *p = (PilhaL *) malloc(sizeof(PilhaL));
 	p->topo = NULL;
