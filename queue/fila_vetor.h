@@ -1,10 +1,16 @@
 #ifndef FILA_VETOR_H
 #define FILA_VETOR_H
+
+#define N 100
+
 struct fila_vetor {
-    void *primeiro;
+    int ini, fim;
+    float vet[N];
 };
 
 typedef struct fila_vetor FilaVetor;
+
+int incr(int i);
 
 FilaVetor* cria_fila_v(void);
 
