@@ -18,7 +18,7 @@ void print_fila_v(FilaVetor *f) {
         int n = f->fim + N;
         int j = f->ini;
         for (int i = f->ini; i < n; i++) {
-            printf("Elemento %d == %d\n", j - f->ini, f->vet[j]);
+            printf("Elemento %d == %d\n", i - f->ini, f->vet[j]);
             j++;
             if (j == N) {
                 j = 0;
@@ -60,11 +60,18 @@ int main(int argc, char *argv[]) {
         insere_fila_v(fv, i * 2);
     }
 
-    fura_fila_l(fl, -12);
-
     printf("FILA COM LISTA:\n");
     print_fila_l(fl);
     printf("\n\nFILA COM VETOR:\n");
+    print_fila_v(fv);
+
+
+    fura_fila_l(fl, -12);
+    fura_fila_v(fv, -14);
+
+    printf("NOVA FILA COM LISTA:\n");
+    print_fila_l(fl);
+    printf("\n\nNOVA FILA COM VETOR:\n");
     print_fila_v(fv);
 
 
