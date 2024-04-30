@@ -1,7 +1,7 @@
 #include "fila_vetor.h"
 
 int incr(int i) {
- return (i+1)%N;
+    return (i+1)%N;
 }
 
 FilaVetor* cria_fila_v(void) {
@@ -10,7 +10,7 @@ FilaVetor* cria_fila_v(void) {
     return f;
 }
 
-void insere_fila_v(FilaVetor* f, float v) {
+void insere_fila_v(FilaVetor* f, int v) {
     if (incr(f->fim) == f->ini) {
         printf("Capacidade da fila estourou.\n");   
         exit(1);    
@@ -21,15 +21,22 @@ void insere_fila_v(FilaVetor* f, float v) {
 
 }
 
-float retira_fila_v(FilaVetor* f) {
+int retira_fila_v(FilaVetor* f) {
     float v;
     if (vazia_fila_v(f)) {
         printf("Fila vazia\n");
-        exxit(1);
+        exit(1);
     }
-    
+    // Retira elemento
+    v = f->vet[f->ini];
+    f->ini = incr(f->ini);
+    return v;
 }
 
-int vazia_fila_v(FilaVetor* f);
+int vazia_fila_v(FilaVetor* f) {
+    return (f->ini == f->fim);
+}
 
-void libera_fila_v(FilaVetor* f);
+void libera_fila_v(FilaVetor* f) {
+    free(f);
+}
