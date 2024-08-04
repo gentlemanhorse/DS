@@ -16,6 +16,7 @@ Arv *cria(int inf, Arv  *sae, Arv *sad) {
     a->inf = inf;
     a->sae = sae;
     a->sad = sad;
+    return a;
 }
 
 int vazia(Arv *a) {
@@ -53,6 +54,19 @@ int folhas(Arv *a) {
     return n;
 }
 
+int ocorrencias(Arv* a, int x) {
+    if (vazia(a)) 
+        return 0;
+
+    int n = 0;
+    if(x == a->inf) 
+        n++;
+    
+    n = n + ocorrencias(a->sae, x);
+    n = n + ocorrencias(a->sad, x);
+    return n;
+}
+
 int main(int argc, char *argv[]) {
     Arv* a = cria(1,
                 cria(2,inicializa(),
@@ -65,24 +79,9 @@ int main(int argc, char *argv[]) {
     );
     imprime(a);
     printf("\nArvore tem %d folhas\n", folhas(a));
+    printf("\nContendo %d ocorrencias do numero 1\n", ocorrencias(a, 1));
+    printf("\nContendo %d ocorrencias do numero 2\n", ocorrencias(a, 2));
+    printf("\nContendo %d ocorrencias do numero 3\n", ocorrencias(a, 3));
     libera(a);
-
-    a = cria('a',
-                cria('b',inicializa(),
-                cria('d', inicializa(), inicializa())
-                ),
-                cria('c',
-                inicializa(),
-                cria('f', inicializa(), inicializa())
-        )
-    );
-    
-    imprime(a);
-    printf("\nArvore tem %d folhas\n", folhas(a));
-    libera(a);
-    if(vazia(a))
-        printf("\n---\nvazia\n----\n");
-    imprime(a);
-    printf("\nArvore tem %d folhas\n", folhas(a));
     return 0;
 }

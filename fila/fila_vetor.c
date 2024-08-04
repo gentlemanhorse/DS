@@ -22,7 +22,7 @@ void insere_fila_v(FilaVetor* f, int v) {
 }
 
 int retira_fila_v(FilaVetor* f) {
-    float v;
+    int v;
     if (vazia_fila_v(f)) {
         printf("Fila vazia\n");
         exit(1);

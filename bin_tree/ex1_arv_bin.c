@@ -16,6 +16,7 @@ Arv *cria(char inf, Arv  *sae, Arv *sad) {
     a->inf = inf;
     a->sae = sae;
     a->sad = sad;
+    return a;
 }
 
 int vazia(Arv *a) {
@@ -80,9 +81,5 @@ int main(int argc, char *argv[]) {
     imprime(a);
     printf("\nArvore tem %d folhas\n", folhas(a));
     libera(a);
-    if(vazia(a))
-        printf("\n---\nvazia\n----\n");
-    imprime(a);
-    printf("\nArvore tem %d folhas\n", folhas(a));
     return 0;
 }
