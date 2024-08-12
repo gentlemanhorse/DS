@@ -54,6 +54,13 @@ int folhas(Arv *a) {
     return n;
 }
 
+int busca (Arv* a, char c){
+ if (vazia(a))
+ return 0; /* árvore vazia: não encontrou */
+ else
+ return a->inf==c || busca(a->sae,c) || busca(a->sad,c);
+}
+
 int main(int argc, char *argv[]) {
     Arv* a = cria('a',
                 cria('b',inicializa(),
@@ -67,7 +74,6 @@ int main(int argc, char *argv[]) {
     imprime(a);
     printf("\nArvore tem %d folhas\n", folhas(a));
     libera(a);
-
     a = cria('a',
                 cria('b',inicializa(),
                 cria('d', inicializa(), inicializa())

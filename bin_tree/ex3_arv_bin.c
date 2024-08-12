@@ -67,6 +67,14 @@ int igual(Arv *a, Arv *b) {
     return igual(a->sae, b->sae) && igual(a->sad, b->sad);
 }
 
+int busca (Arv* a, char c){
+ if (vazia(a))
+ return 0; /* árvore vazia: não encontrou */
+ else
+ return a->inf==c || busca(a->sae,c) || busca(a->sad,c);
+}
+
+
 int main() {
     Arv* a = cria(1,
                     cria(2, inicializa(),
